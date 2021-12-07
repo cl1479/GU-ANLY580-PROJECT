@@ -5,7 +5,9 @@
 ## Introduction & background
 
 The ultimate goal of this project is to create an automatic classification model for text posts. With the emergence and quick adoption of smartphones, people are spending tremendous amounts of time interacting with each other online using social media. However the system is not so smart yet where people have to choose what category they want to post to. By adopting such system created by using multiple ensemble classification, neural networks or nlp models, users can decide where they want to post from the smart categories suggestion or even automatically send messages without even thinking what categories the messages belong to which could help people to post things faster, connect with other people more easily and make people more addicted to the platform.
+
 The topic of this project is “The Reddit Self-Post Classification”. Reddit is a social news site with the slogan: A voice ahead of the news, a voice from the Internet. Users (also called redditors) can browse and submit links to content on the Internet or post their own original or relevant user-submitted text. Other users can vote on the links posted with high or low scores, and links with outstanding scores will be placed on the front page. In addition, users can comment on posted links and reply to other commenters, thus creating an online community. Reddit users can create their own section of the argument, both informal for those posting links and comments, and formal for those posting links and comments, like Reddit user submissions, and formal for associations. In this project, we will focus on self-posts, with a title and a body of markdown text written by users on Reddit.
+
 Self-posts are divided into various “subreddits” based on the types of posts being submitted, for example “r/politics” or “r/MachineLearning”. However, subreddits are usually created by users themselves rather than the administrator of Reddit. Thus, sometimes redditors may not know which community (or subreddit) their self-posts belong to and they may need recommendation from the website. Therefore, the purpose of our project is to create a text classifier which groups users’ posts into different topics so that the website can provide recommendations for users based on the results from our text classifier. 
 
 ## Dataset
@@ -16,15 +18,21 @@ The data consists of 1013M self-posts, posted from 1013 subreddits (1000 example
 
 
 ## Methologies
+
 ###### Naive Bayes
-Naive Bayes methods are a set of supervised learning algorithms based on applying Bayes’ theorem with the “naive” assumption of conditional independence between every pair of features given the value of the class variable. Bayes’ theorem states the following relationship, given class variable y and dependent feature vector X1 through Xn: P(y|x1,....,xn) = P(y)P(x1,...,xn|y)/P(x1,...xn)
+
+Naive Bayes methods are a set of supervised learning algorithms based on applying Bayes’ theorem with the “naive” assumption of conditional independence between every pair of features given the value of the class variable. Bayes’ theorem states the following relationship, given class variable y and dependent feature vector X1 through Xn: P(y|x1,....,xn) = P(y)P(x1,...,xn|y)/P(x1,...xn).
+
 Using the naive conditional independence assumption that P(xi|y,x1,...xi-1,xi+1,....xn) = P(xi|y), for all i, this relationship is simplified to P(y|x1,...,xn) = P(y)Since P(x1,...,xn) is constant given the input, we can use the following classification rule:  P(y|x1,...,xn) P(y)= argmax(y)P(y)
+
 ###### Bert:
 A pre-trained model based on wikipedia data and it captures the context and meaning of the word by utilizing the sentences around it using Transformer which is an encoder-decoder architecture using attention mechanism which means it trains on all nodes, forward and back.
 ######Countvectorizer:
 a vector on the basis of the frequency (count) of each word that occurs in the entire text.
+
 ###### SVD:
 Singular value decomposition (SVD) is a method of representing a matrix as a series of linear approximations that expose the underlying meaning-structure of the matrix. The goal of SVD is to find the optimal set of factors that best predict the outcome.
+
 ###### XGBoost:
 A tree-based(decision tree) ensemble machine learning model scalable for tree boosting.
 
@@ -48,8 +56,12 @@ XGBoost + Countvectorizer has the best accuracy score. Although it ranks second
 XGBoost + Countvectorizer is the optimal model that we tested and compared. BOW (Countvectorizer) has the best performance in the whole project dealing with Text. The reason could be the single dimensionality of the data.
 
 ###### Possible Improvements
-	- Limitation of data
+
+- Limitation of data
+
 Our data contains only the first 1000 posts in 18 categories at a short time. Therefore, the data does not include all types and long time periods. If we want our classification model to be more comprehensive, we need to increase the size and dimensionality of the data.
-	- Classification Model Objectives
+
+- Classification Model Objectives
+
 When we created the Naive Bayes model, we used the title of the post to perform the classification. The accuracy of the created model will be higher than that of selftext. hence, changing the target may result in a higher accuracy model.
 
