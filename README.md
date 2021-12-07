@@ -26,14 +26,12 @@ Singular value decomposition (SVD) is a method of representing a matrix as a ser
 A tree-based(decision tree) ensemble machine learning model scalable for tree boosting.
 
 ##Result Comparison
-
- 
-|Model name	               |F1-Score |Precision |Accuracy |Training Time|
-----------------------------------------------------------------------------|
-|Naive Bayes	               |53.47%	 |55.06%    |58.56%   |13.78s.      |
-|XGBoost + Bert	               |40.64%	 |38.28%.   |43.58%   |54.55s.      |
-|XGBoost + Countvectorizer     |70.50%	 |70.65%.   |72.02%.  |7.61s.       |
-|XGBoost +Countvectorizer +SVD |46.75%	 |45.63%.   |48.58%.  |5.84s.       |
+| Model name | F1-Score | Precision | Accuracy | Training Time |
+| -------------------------------------------------------------------------- |
+| Naive Bayes | 53.47% | 55.06% | 58.56% | 13.78s |
+| XGBoost + Bert | 40.64% | 38.28% | 43.58% | 54.55s |
+| XGBoost + Countvectorizer | 70.50% | 70.65% | 72.02% | 7.61s |
+| XGBoost +Countvectorizer + SVD | 46.75% | 45.63% | 48.58% | 5.84s |
 
 This table clearly shows the four model evaluation criteria: F1-score, precision, accuracy and training time. For the first three criteria, the best performer is XGboost + countvectorizer. then there is NB which also performs well. XGB + SVD took the least amount of time in terms of training time spent. But the accuracy was very poor.
 
